@@ -24,4 +24,22 @@ export class NotesService {
       throw err;
     }
   }
+
+  async updateNote(noteData: {
+    id: number;
+    userId: number;
+    title: string;
+    description: string;
+  }) {
+    try {
+      await this.noteRepo.update(
+        { id: noteData.id },
+        { ...noteData, updatedAt: new Date() },
+      );
+      return this.noteRepo.findOneBy({ id: noteData.id });
+    } catch (err) {
+      console.error('Error updating note:', err);
+      throw err;
+    }
+  }
 }

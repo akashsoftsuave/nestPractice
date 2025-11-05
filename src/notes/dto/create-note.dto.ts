@@ -14,3 +14,21 @@ export class CreateNoteDto {
   @IsNotEmpty()
   description: string;
 }
+
+export class UpdateNoteDto {
+  @IsNumber()
+  @IsNotEmpty()
+  id: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  userId: number;
+
+  @IsString()
+  @IsNotEmpty()
+  title: string;
+
+  @IsString()
+  @IsNotEmpty()
+  description: string;
+}
